@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
+  - TUSKit (1.4.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Kingfisher (~> 5.9)
+  - TUSKit (from `easyupload/Libraries/TUSKit/`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+
+EXTERNAL SOURCES:
+  TUSKit:
+    :path: easyupload/Libraries/TUSKit/
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  TUSKit: 72464dc807f77640f3a25ed1c9d0b12ce953de0c
+
+PODFILE CHECKSUM: aa9645f427be554c4032210a58748fce9bb58c27
+
+COCOAPODS: 1.8.4

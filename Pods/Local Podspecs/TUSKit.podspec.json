@@ -1,0 +1,26 @@
+{
+  "name": "TUSKit",
+  "version": "1.4.2",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://tus.io/",
+  "authors": {
+    "tus - Resumable File Uploads": "email@address.com"
+  },
+  "summary": "The tus client for iOS.",
+  "source": {
+    "git": "https://github.com/tus/TUSKit.git",
+    "tag": "#{s.version}"
+  },
+  "source_files": [
+    "Supporting Files/*.{h,m}",
+    "TUSKit/*.{h,m}"
+  ],
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}

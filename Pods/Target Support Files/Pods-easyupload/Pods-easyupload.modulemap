@@ -1,0 +1,6 @@
+framework module Pods_easyupload {
+  umbrella header "Pods-easyupload-umbrella.h"
+
+  export *
+  module * { export * }
+}

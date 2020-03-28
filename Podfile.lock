@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.9.1)
+  - AWSCore (2.13.1)
+  - AWSLambda (2.13.1):
+    - AWSCore (= 2.13.1)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
@@ -7,12 +10,15 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AWSLambda
   - Kingfisher (~> 5.9)
   - TUSKit (from `easyupload/Libraries/TUSKit/`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AWSCore
+    - AWSLambda
     - Kingfisher
 
 EXTERNAL SOURCES:
@@ -21,9 +27,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AWSCore: ec394695d054fa4136b20ccd22d8901faea5de04
+  AWSLambda: 06e7dc0206f8ccef6380f096ab92503d5c96e96b
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   TUSKit: 72464dc807f77640f3a25ed1c9d0b12ce953de0c
 
-PODFILE CHECKSUM: aa9645f427be554c4032210a58748fce9bb58c27
+PODFILE CHECKSUM: 46dcc602ffa0e924633e6346fff23589e1dbde18
 
 COCOAPODS: 1.8.4

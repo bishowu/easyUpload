@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3BE26A242F36B600E5ED96 /* XnBayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */; };
+		2E3BE26E242F3CFF00E5ED96 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */; };
+		2E3BE270242F3D6800E5ED96 /* FileApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */; };
 		2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */; };
-		2E4C2A9E242CDFC70034E0B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9D242CDFC70034E0B3 /* SceneDelegate.swift */; };
 		2E4C2AA0242CDFC70034E0B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */; };
 		2E4C2AA3242CDFC70034E0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */; };
 		2E4C2AA6242CDFC70034E0B3 /* easyupload.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA4242CDFC70034E0B3 /* easyupload.xcdatamodeld */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XnBayUtil.swift; sourceTree = "<group>"; };
+		2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
+		2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileApiResult.swift; sourceTree = "<group>"; };
 		2E4C2A98242CDFC70034E0B3 /* easyupload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyupload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E4C2A9D242CDFC70034E0B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2E4C2AA2242CDFC70034E0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E4C2AA5242CDFC70034E0B3 /* easyupload.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = easyupload.xcdatamodel; sourceTree = "<group>"; };
@@ -55,6 +59,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2E3BE25B242F209D00E5ED96 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */,
+				2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */,
+				2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
 		2E4C2A8F242CDFC70034E0B3 = {
 			isa = PBXGroup;
 			children = (
@@ -76,9 +90,9 @@
 		2E4C2A9A242CDFC70034E0B3 /* easyupload */ = {
 			isa = PBXGroup;
 			children = (
+				2E3BE25B242F209D00E5ED96 /* Function */,
 				2E4C2AB2242CE0C10034E0B3 /* Libraries */,
 				2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */,
-				2E4C2A9D242CDFC70034E0B3 /* SceneDelegate.swift */,
 				2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */,
 				2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */,
 				2E4C2AA7242CDFC80034E0B3 /* Assets.xcassets */,
@@ -223,8 +237,10 @@
 			files = (
 				2E4C2AA0242CDFC70034E0B3 /* ViewController.swift in Sources */,
 				2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */,
+				2E3BE26E242F3CFF00E5ED96 /* CryptoUtil.swift in Sources */,
+				2E3BE270242F3D6800E5ED96 /* FileApiResult.swift in Sources */,
+				2E3BE26A242F36B600E5ED96 /* XnBayUtil.swift in Sources */,
 				2E4C2AA6242CDFC70034E0B3 /* easyupload.xcdatamodeld in Sources */,
-				2E4C2A9E242CDFC70034E0B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

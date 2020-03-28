@@ -6,9 +6,11 @@ target 'easyupload' do
   use_frameworks!
 
   # Pods for easyupload
-
   pod 'Alamofire', '~> 4.4’
 
+  # AWS
+  pod 'AWSLambda'
+  
   # Image Cache
   pod 'Kingfisher', '~> 5.9'
 

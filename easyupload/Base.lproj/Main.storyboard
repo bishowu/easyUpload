@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="lD0-Rq-vlv">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vT0-IO-Q5X" customClass="ViewController" customModule="easyupload" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vT0-IO-Q5X" customClass="LoginViewController" customModule="easyupload" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wV-Be-M4h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,11 +101,133 @@
                         <outlet property="textIP" destination="yzT-Ao-Z1Q" id="Cxi-ga-mnm"/>
                         <outlet property="textId" destination="Z0J-ic-J6V" id="Nd9-T9-tEP"/>
                         <outlet property="textPassword" destination="Foa-Lz-iFr" id="KNB-Aw-QS8"/>
+                        <segue destination="FY2-Uh-mUA" kind="presentation" identifier="SegueToMain" id="W3Z-01-6lW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kje-zS-ZIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="-434"/>
+            <point key="canvasLocation" x="-677" y="-435"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d7u-Gc-Yzd">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FY2-Uh-mUA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4ZY-7d-q4P"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uSK-YG-lDY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ks2-QV-XgC" kind="relationship" relationship="rootViewController" id="mIL-Kw-pB2"/>
+                        <segue destination="Bc7-eS-v4L" kind="show" id="AmA-gK-Wap"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Kw-BR-Wqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399" y="-435"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="aBC-hO-gLM">
+            <objects>
+                <viewController storyboardIdentifier="UploadViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ks2-QV-XgC" customClass="UploadViewController" customModule="easyupload" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kgN-Y8-IeE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTp-F1-N50">
+                                <rect key="frame" x="107" y="108" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="84l-AA-xLg"/>
+                                    <constraint firstAttribute="height" constant="40" id="wjz-iq-jCF"/>
+                                </constraints>
+                                <state key="normal" title="UPLOAD"/>
+                                <connections>
+                                    <action selector="btnUploadClick:" destination="ks2-QV-XgC" eventType="touchUpInside" id="po0-B7-dfr"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" estimatedRowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Ea-gag">
+                                <rect key="frame" x="0.0" y="168" width="414" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ks2-QV-XgC" id="0jx-Nc-r8Y"/>
+                                    <outlet property="delegate" destination="ks2-QV-XgC" id="YRM-ul-zR3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ulB-Iv-hT8" firstAttribute="trailing" secondItem="XAr-Ea-gag" secondAttribute="trailing" id="9Rn-jV-KRM"/>
+                            <constraint firstItem="XAr-Ea-gag" firstAttribute="leading" secondItem="ulB-Iv-hT8" secondAttribute="leading" id="F3D-YU-D01"/>
+                            <constraint firstItem="GTp-F1-N50" firstAttribute="top" secondItem="ulB-Iv-hT8" secondAttribute="top" constant="20" id="Kq4-dY-b9X"/>
+                            <constraint firstItem="GTp-F1-N50" firstAttribute="centerX" secondItem="kgN-Y8-IeE" secondAttribute="centerX" id="fYm-oM-F7j"/>
+                            <constraint firstItem="XAr-Ea-gag" firstAttribute="top" secondItem="GTp-F1-N50" secondAttribute="bottom" constant="20" id="k3s-Sx-6sL"/>
+                            <constraint firstItem="ulB-Iv-hT8" firstAttribute="bottom" secondItem="XAr-Ea-gag" secondAttribute="bottom" id="qQ7-Ft-0Kw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ulB-Iv-hT8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vf0-xX-pzK">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="a09-Zk-a5B">
+                            <connections>
+                                <action selector="btnLogoutClick:" destination="ks2-QV-XgC" id="JNx-Vp-X1k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnUpload" destination="GTp-F1-N50" id="wk4-VK-asU"/>
+                        <outlet property="tableView" destination="XAr-Ea-gag" id="BOv-Ez-7GE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAw-f7-TCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="-435"/>
+        </scene>
+        <!--Select View Controller-->
+        <scene sceneID="Vie-5f-r9i">
+            <objects>
+                <viewController storyboardIdentifier="SelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bc7-eS-v4L" customClass="SelectViewController" customModule="easyupload" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zxo-9d-Xex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AtU-5C-txB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="Krl-vO-uP8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Bc7-eS-v4L" id="SQq-mZ-8fJ"/>
+                                    <outlet property="delegate" destination="Bc7-eS-v4L" id="eNz-zT-nPk"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AtU-5C-txB" firstAttribute="leading" secondItem="87n-sc-y2i" secondAttribute="leading" id="AP5-eW-6op"/>
+                            <constraint firstItem="87n-sc-y2i" firstAttribute="trailing" secondItem="AtU-5C-txB" secondAttribute="trailing" id="D82-Hk-vxa"/>
+                            <constraint firstItem="AtU-5C-txB" firstAttribute="top" secondItem="87n-sc-y2i" secondAttribute="top" id="Inm-Tn-hzm"/>
+                            <constraint firstItem="87n-sc-y2i" firstAttribute="bottom" secondItem="AtU-5C-txB" secondAttribute="bottom" id="oT2-XH-4A2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="87n-sc-y2i"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eoz-fY-DMX">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="s57-fa-P8k">
+                            <connections>
+                                <action selector="btnUploadClick:" destination="Bc7-eS-v4L" id="qXm-0T-JF8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="AtU-5C-txB" id="fOK-om-rFY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qb8-IC-CaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="267"/>
         </scene>
     </scenes>
 </document>

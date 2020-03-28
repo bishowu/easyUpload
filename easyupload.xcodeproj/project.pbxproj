@@ -10,8 +10,20 @@
 		2E3BE26A242F36B600E5ED96 /* XnBayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */; };
 		2E3BE26E242F3CFF00E5ED96 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */; };
 		2E3BE270242F3D6800E5ED96 /* FileApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */; };
+		2E3BE272242F631200E5ED96 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE271242F631200E5ED96 /* UploadViewController.swift */; };
+		2E3BE27B242F795D00E5ED96 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE27A242F795D00E5ED96 /* SelectViewController.swift */; };
+		2E3BE27E242F7B0500E5ED96 /* SelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE27C242F7B0500E5ED96 /* SelectCollectionViewCell.swift */; };
+		2E3BE27F242F7B0500E5ED96 /* SelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BE27D242F7B0500E5ED96 /* SelectCollectionViewCell.xib */; };
+		2E3BE282242F86FB00E5ED96 /* LocalMedias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE281242F86FB00E5ED96 /* LocalMedias.swift */; };
+		2E3BE284242F87B300E5ED96 /* AssetInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE283242F87B300E5ED96 /* AssetInfoItem.swift */; };
+		2E3BE287242F913200E5ED96 /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE285242F913200E5ED96 /* EmptyCollectionViewCell.swift */; };
+		2E3BE288242F913200E5ED96 /* EmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BE286242F913200E5ED96 /* EmptyCollectionViewCell.xib */; };
+		2E3BE28A242F9A2A00E5ED96 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE289242F9A2A00E5ED96 /* TaskManager.swift */; };
+		2E3BE28C242F9EB600E5ED96 /* PHAsset＋URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE28B242F9EB600E5ED96 /* PHAsset＋URL.swift */; };
+		2E3BE28F242FA74000E5ED96 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE28D242FA74000E5ED96 /* TaskTableViewCell.swift */; };
+		2E3BE290242FA74000E5ED96 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BE28E242FA74000E5ED96 /* TaskTableViewCell.xib */; };
 		2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */; };
-		2E4C2AA0242CDFC70034E0B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */; };
+		2E4C2AA0242CDFC70034E0B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */; };
 		2E4C2AA3242CDFC70034E0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */; };
 		2E4C2AA6242CDFC70034E0B3 /* easyupload.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA4242CDFC70034E0B3 /* easyupload.xcdatamodeld */; };
 		2E4C2AA8242CDFC80034E0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA7242CDFC80034E0B3 /* Assets.xcassets */; };
@@ -24,9 +36,21 @@
 		2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XnBayUtil.swift; sourceTree = "<group>"; };
 		2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileApiResult.swift; sourceTree = "<group>"; };
+		2E3BE271242F631200E5ED96 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		2E3BE27A242F795D00E5ED96 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		2E3BE27C242F7B0500E5ED96 /* SelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E3BE27D242F7B0500E5ED96 /* SelectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E3BE281242F86FB00E5ED96 /* LocalMedias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMedias.swift; sourceTree = "<group>"; };
+		2E3BE283242F87B300E5ED96 /* AssetInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetInfoItem.swift; sourceTree = "<group>"; };
+		2E3BE285242F913200E5ED96 /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E3BE286242F913200E5ED96 /* EmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionViewCell.xib; sourceTree = "<group>"; };
+		2E3BE289242F9A2A00E5ED96 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		2E3BE28B242F9EB600E5ED96 /* PHAsset＋URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset＋URL.swift"; sourceTree = "<group>"; };
+		2E3BE28D242FA74000E5ED96 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		2E3BE28E242FA74000E5ED96 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		2E4C2A98242CDFC70034E0B3 /* easyupload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyupload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E4C2AA2242CDFC70034E0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E4C2AA5242CDFC70034E0B3 /* easyupload.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = easyupload.xcdatamodel; sourceTree = "<group>"; };
 		2E4C2AA7242CDFC80034E0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,11 +86,34 @@
 		2E3BE25B242F209D00E5ED96 /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				2E3BE28B242F9EB600E5ED96 /* PHAsset＋URL.swift */,
 				2E3BE269242F36B600E5ED96 /* XnBayUtil.swift */,
 				2E3BE26F242F3D6800E5ED96 /* FileApiResult.swift */,
 				2E3BE26D242F3CFF00E5ED96 /* CryptoUtil.swift */,
 			);
 			path = Function;
+			sourceTree = "<group>";
+		};
+		2E3BE273242F72F100E5ED96 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2E3BE27C242F7B0500E5ED96 /* SelectCollectionViewCell.swift */,
+				2E3BE27D242F7B0500E5ED96 /* SelectCollectionViewCell.xib */,
+				2E3BE285242F913200E5ED96 /* EmptyCollectionViewCell.swift */,
+				2E3BE286242F913200E5ED96 /* EmptyCollectionViewCell.xib */,
+				2E3BE28D242FA74000E5ED96 /* TaskTableViewCell.swift */,
+				2E3BE28E242FA74000E5ED96 /* TaskTableViewCell.xib */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		2E3BE280242F86D800E5ED96 /* DataSet */ = {
+			isa = PBXGroup;
+			children = (
+				2E3BE281242F86FB00E5ED96 /* LocalMedias.swift */,
+				2E3BE283242F87B300E5ED96 /* AssetInfoItem.swift */,
+			);
+			path = DataSet;
 			sourceTree = "<group>";
 		};
 		2E4C2A8F242CDFC70034E0B3 = {
@@ -90,10 +137,15 @@
 		2E4C2A9A242CDFC70034E0B3 /* easyupload */ = {
 			isa = PBXGroup;
 			children = (
+				2E3BE280242F86D800E5ED96 /* DataSet */,
+				2E3BE273242F72F100E5ED96 /* ViewCell */,
 				2E3BE25B242F209D00E5ED96 /* Function */,
 				2E4C2AB2242CE0C10034E0B3 /* Libraries */,
 				2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */,
-				2E4C2A9F242CDFC70034E0B3 /* ViewController.swift */,
+				2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */,
+				2E3BE271242F631200E5ED96 /* UploadViewController.swift */,
+				2E3BE27A242F795D00E5ED96 /* SelectViewController.swift */,
+				2E3BE289242F9A2A00E5ED96 /* TaskManager.swift */,
 				2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */,
 				2E4C2AA7242CDFC80034E0B3 /* Assets.xcassets */,
 				2E4C2AA9242CDFC80034E0B3 /* LaunchScreen.storyboard */,
@@ -179,10 +231,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3BE288242F913200E5ED96 /* EmptyCollectionViewCell.xib in Resources */,
 				2E4C2AAB242CDFC80034E0B3 /* LaunchScreen.storyboard in Resources */,
 				2E4C2AA8242CDFC80034E0B3 /* Assets.xcassets in Resources */,
 				2E4C2AB4242CE0E40034E0B3 /* TUSKit in Resources */,
+				2E3BE27F242F7B0500E5ED96 /* SelectCollectionViewCell.xib in Resources */,
 				2E4C2AA3242CDFC70034E0B3 /* Main.storyboard in Resources */,
+				2E3BE290242FA74000E5ED96 /* TaskTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +290,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E4C2AA0242CDFC70034E0B3 /* ViewController.swift in Sources */,
+				2E3BE27B242F795D00E5ED96 /* SelectViewController.swift in Sources */,
+				2E4C2AA0242CDFC70034E0B3 /* LoginViewController.swift in Sources */,
+				2E3BE28F242FA74000E5ED96 /* TaskTableViewCell.swift in Sources */,
+				2E3BE27E242F7B0500E5ED96 /* SelectCollectionViewCell.swift in Sources */,
+				2E3BE28A242F9A2A00E5ED96 /* TaskManager.swift in Sources */,
+				2E3BE284242F87B300E5ED96 /* AssetInfoItem.swift in Sources */,
+				2E3BE272242F631200E5ED96 /* UploadViewController.swift in Sources */,
 				2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */,
+				2E3BE282242F86FB00E5ED96 /* LocalMedias.swift in Sources */,
 				2E3BE26E242F3CFF00E5ED96 /* CryptoUtil.swift in Sources */,
 				2E3BE270242F3D6800E5ED96 /* FileApiResult.swift in Sources */,
+				2E3BE28C242F9EB600E5ED96 /* PHAsset＋URL.swift in Sources */,
 				2E3BE26A242F36B600E5ED96 /* XnBayUtil.swift in Sources */,
+				2E3BE287242F913200E5ED96 /* EmptyCollectionViewCell.swift in Sources */,
 				2E4C2AA6242CDFC70034E0B3 /* easyupload.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

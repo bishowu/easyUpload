@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textIP: UITextField!
     @IBOutlet weak var textId: UITextField!
@@ -88,8 +88,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             XnBayUtil.shared.login(id: id, ip: ip, email: email, password: pass) { (errno) in
                 DispatchQueue.main.async {
                     if errno == 0 {
-                        self.alert?.message = "Login OK!"
-                        self.alert?.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.alert?.dismiss(animated: true, completion: {
+                            // NOTICE: Show a new viewcontroller afer dismiss is completed, otherwise perform fails
+                            self.performSegue(withIdentifier: "SegueToMain", sender: self)
+                        })
                     } else {
                         self.alert?.message = "Error occurs, errno = \(errno)"
                         self.alert?.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -144,5 +146,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("cctest ====> segue prepare .... ")
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Photos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
 
-        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let mainstoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         window.rootViewController = newViewcontroller
         
         return true
@@ -71,6 +72,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

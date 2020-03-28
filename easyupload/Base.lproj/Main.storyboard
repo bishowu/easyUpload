@@ -120,6 +120,7 @@
                     <connections>
                         <segue destination="ks2-QV-XgC" kind="relationship" relationship="rootViewController" id="mIL-Kw-pB2"/>
                         <segue destination="Bc7-eS-v4L" kind="show" id="AmA-gK-Wap"/>
+                        <segue destination="g1k-Ad-kfA" kind="show" id="lps-ZG-gSv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Kw-BR-Wqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -145,7 +146,7 @@
                                     <action selector="btnUploadClick:" destination="ks2-QV-XgC" eventType="touchUpInside" id="po0-B7-dfr"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" estimatedRowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Ea-gag">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Ea-gag">
                                 <rect key="frame" x="0.0" y="168" width="414" height="694"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
@@ -180,6 +181,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAw-f7-TCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1462" y="-435"/>
+        </scene>
+        <!--Local Album Table View Controller-->
+        <scene sceneID="NlI-9u-mad">
+            <objects>
+                <tableViewController storyboardIdentifier="LocalAlbumTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g1k-Ad-kfA" customClass="LocalAlbumTableViewController" customModule="easyupload" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rju-uX-Ei9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="g1k-Ad-kfA" id="ol0-72-wCo"/>
+                            <outlet property="delegate" destination="g1k-Ad-kfA" id="JUB-0A-PwP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="32a-DD-aJO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKZ-HN-eN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399" y="352"/>
         </scene>
         <!--Select View Controller-->
         <scene sceneID="Vie-5f-r9i">
@@ -227,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qb8-IC-CaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="267"/>
+            <point key="canvasLocation" x="1461" y="352"/>
         </scene>
     </scenes>
 </document>

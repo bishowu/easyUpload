@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Photos
 
 class SelectViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var album: AlbumItem!
+    var loaded = false
     
     let checked: UIImage = UIImage(named: "check_blue")!
     let notcheck: UIImage = UIImage(named: "check_empty")!
@@ -25,7 +29,8 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.collectionView.register(UINib(nibName: "SelectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SelectCollectionViewCell")
         self.collectionView.register(UINib(nibName: "EmptyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EmptyCollectionViewCell")
         
-        LocalMedias.shared.loadList() {
+        LocalMedias.shared.loadList(album) {
+            self.loaded = true
             self.collectionView.reloadData()
         }
     }
@@ -36,7 +41,7 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
         TaskManager.shared.run()
         LocalMedias.shared.clearSelections()
         
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - UICollectionViewDelegate
@@ -70,12 +75,14 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if medias.count == 0 {
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCollectionViewCell", for: indexPath) as! EmptyCollectionViewCell
+            cell.label.text = self.loaded ? "NO DATA" : "LOADING..."
             return cell
         } else {
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "SelectCollectionViewCell", for: indexPath) as! SelectCollectionViewCell
             
             cell.imgBackground.image = medias[indexPath.row].getThumbnail()
             cell.imgCheck.image = medias[indexPath.row].selected ? checked : notcheck
+            cell.type = (medias[indexPath.row].phAsset.mediaType == .video) ? .video : .image
             return cell
         }
         

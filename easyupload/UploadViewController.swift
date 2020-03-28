@@ -94,7 +94,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func showSelectView() {
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocalAlbumTableViewController") as! LocalAlbumTableViewController
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -11,20 +11,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SelectCollectionViewCell" customModule="easyupload" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_concert" translatesAutoresizingMaskIntoConstraints="NO" id="0mB-Kc-g2Y">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Dbi-Bu-DEz">
-                        <rect key="frame" x="5" y="5" width="24" height="24"/>
+                        <rect key="frame" x="5" y="5" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Rfh-Yr-JqB"/>
-                            <constraint firstAttribute="width" constant="24" id="epD-f6-bO8"/>
+                            <constraint firstAttribute="height" constant="20" id="Rfh-Yr-JqB"/>
+                            <constraint firstAttribute="width" constant="20" id="epD-f6-bO8"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_video" translatesAutoresizingMaskIntoConstraints="NO" id="IDz-Gu-hyj">
+                        <rect key="frame" x="69" y="5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="3N3-0T-tLc"/>
+                            <constraint firstAttribute="height" constant="20" id="iRE-w6-CQX"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -34,20 +41,24 @@
                 <constraint firstAttribute="bottom" secondItem="0mB-Kc-g2Y" secondAttribute="bottom" id="QtQ-cb-Mck"/>
                 <constraint firstItem="0mB-Kc-g2Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SK5-u9-X1J"/>
                 <constraint firstItem="Dbi-Bu-DEz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="THz-O6-Ylb"/>
+                <constraint firstAttribute="trailing" secondItem="IDz-Gu-hyj" secondAttribute="trailing" constant="5" id="dW6-gk-1S0"/>
+                <constraint firstItem="IDz-Gu-hyj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="dWJ-OZ-ijj"/>
                 <constraint firstItem="Dbi-Bu-DEz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="log-FJ-g5j"/>
                 <constraint firstItem="0mB-Kc-g2Y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zyc-vu-sUa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="59" height="60"/>
+            <size key="customSize" width="93" height="94"/>
             <connections>
                 <outlet property="imgBackground" destination="0mB-Kc-g2Y" id="s5M-2s-LIu"/>
                 <outlet property="imgCheck" destination="Dbi-Bu-DEz" id="jiB-x1-b7c"/>
+                <outlet property="videoIcon" destination="IDz-Gu-hyj" id="EVY-ag-gbp"/>
             </connections>
-            <point key="canvasLocation" x="144.20289855072465" y="109.15178571428571"/>
+            <point key="canvasLocation" x="168.11594202898553" y="120.53571428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="check_empty" width="24" height="24"/>
         <image name="default_concert" width="480" height="320"/>
+        <image name="small_video" width="20" height="20"/>
     </resources>
 </document>

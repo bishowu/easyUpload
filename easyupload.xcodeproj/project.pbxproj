@@ -22,6 +22,8 @@
 		2E3BE28C242F9EB600E5ED96 /* PHAsset＋URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE28B242F9EB600E5ED96 /* PHAsset＋URL.swift */; };
 		2E3BE28F242FA74000E5ED96 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE28D242FA74000E5ED96 /* TaskTableViewCell.swift */; };
 		2E3BE290242FA74000E5ED96 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3BE28E242FA74000E5ED96 /* TaskTableViewCell.xib */; };
+		2E3BE292242FB0F600E5ED96 /* LocalAlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE291242FB0F600E5ED96 /* LocalAlbumTableViewController.swift */; };
+		2E3BE294242FB3B100E5ED96 /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BE293242FB3B100E5ED96 /* AlbumItem.swift */; };
 		2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */; };
 		2E4C2AA0242CDFC70034E0B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */; };
 		2E4C2AA3242CDFC70034E0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		2E3BE28B242F9EB600E5ED96 /* PHAsset＋URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset＋URL.swift"; sourceTree = "<group>"; };
 		2E3BE28D242FA74000E5ED96 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		2E3BE28E242FA74000E5ED96 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		2E3BE291242FB0F600E5ED96 /* LocalAlbumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAlbumTableViewController.swift; sourceTree = "<group>"; };
+		2E3BE293242FB3B100E5ED96 /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
 		2E4C2A98242CDFC70034E0B3 /* easyupload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyupload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				2E3BE281242F86FB00E5ED96 /* LocalMedias.swift */,
 				2E3BE283242F87B300E5ED96 /* AssetInfoItem.swift */,
+				2E3BE293242FB3B100E5ED96 /* AlbumItem.swift */,
 			);
 			path = DataSet;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				2E4C2A9B242CDFC70034E0B3 /* AppDelegate.swift */,
 				2E4C2A9F242CDFC70034E0B3 /* LoginViewController.swift */,
 				2E3BE271242F631200E5ED96 /* UploadViewController.swift */,
+				2E3BE291242FB0F600E5ED96 /* LocalAlbumTableViewController.swift */,
 				2E3BE27A242F795D00E5ED96 /* SelectViewController.swift */,
 				2E3BE289242F9A2A00E5ED96 /* TaskManager.swift */,
 				2E4C2AA1242CDFC70034E0B3 /* Main.storyboard */,
@@ -299,10 +305,12 @@
 				2E3BE272242F631200E5ED96 /* UploadViewController.swift in Sources */,
 				2E4C2A9C242CDFC70034E0B3 /* AppDelegate.swift in Sources */,
 				2E3BE282242F86FB00E5ED96 /* LocalMedias.swift in Sources */,
+				2E3BE292242FB0F600E5ED96 /* LocalAlbumTableViewController.swift in Sources */,
 				2E3BE26E242F3CFF00E5ED96 /* CryptoUtil.swift in Sources */,
 				2E3BE270242F3D6800E5ED96 /* FileApiResult.swift in Sources */,
 				2E3BE28C242F9EB600E5ED96 /* PHAsset＋URL.swift in Sources */,
 				2E3BE26A242F36B600E5ED96 /* XnBayUtil.swift in Sources */,
+				2E3BE294242FB3B100E5ED96 /* AlbumItem.swift in Sources */,
 				2E3BE287242F913200E5ED96 /* EmptyCollectionViewCell.swift in Sources */,
 				2E4C2AA6242CDFC70034E0B3 /* easyupload.xcdatamodeld in Sources */,
 			);

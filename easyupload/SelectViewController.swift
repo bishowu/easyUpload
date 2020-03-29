@@ -37,7 +37,13 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBAction func btnUploadClick(_ sender: Any) {
         let selected = LocalMedias.shared.getSelectedList()
-        TaskManager.shared.uploadMedias = selected
+        var items = [UploadItem]()
+        
+        for s in selected {
+            // rename: According to the backup settings
+            items.append(UploadItem(devId: "xnbay_deviceId", dest: "/Drive/C/Upload/", media: s, rename: true))
+        }
+        TaskManager.shared.uploadItems = items
         TaskManager.shared.run()
         LocalMedias.shared.clearSelections()
         

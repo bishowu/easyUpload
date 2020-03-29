@@ -57,7 +57,14 @@ class XnBayUtil {
         set {}
     }
     
-    private var accessToken: String? = nil
+    var tusUploadUrl: String {
+        get {
+            return self.connectUrl.isEmpty ? "" : (self.connectUrl + "files/")
+        }
+        set {}
+    }
+    
+    var accessToken: String? = nil
     private let clientId = "com.xnbay.xnfun"
     
     init() {

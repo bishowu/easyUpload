@@ -100,7 +100,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - TaskChangeObserver
-    func onChanged(taskId: String, progress: Float?, status: TaskManager.TaskStatus) {
+    func onChanged(taskId: String, progress: Double?, status: TaskManager.TaskStatus) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -114,9 +114,11 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
         let tasks = TaskManager.shared.getAllTasks()
+        let percentage = String(format: "%.02f", tasks[indexPath.row].percentage)
+        let iCloudPhoto = tasks[indexPath.row].item.iCloudPhoto
         
-        cell.labelFilename.text = tasks[indexPath.row].filename
-        cell.labelStatus.text = tasks[indexPath.row].status.rawValue
+        cell.labelFilename.text = "\(iCloudPhoto ? "iCloud - " : "")" + tasks[indexPath.row].item.filename
+        cell.labelStatus.text = tasks[indexPath.row].status.rawValue + " - \(percentage) %"
         return cell
     }
 }

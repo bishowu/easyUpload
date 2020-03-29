@@ -16,11 +16,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var segProtocol: UISegmentedControl!
+    @IBOutlet var viewBackground: UIView!
     
     var alert: UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.viewBackground.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapBackground)))
         
         self.textIP.delegate = self
         self.textIP.addTarget(self, action: #selector(self.textDidChanged), for: .editingChanged)
@@ -112,6 +115,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.showAlertMessage("Please input the email and password !")
         }
+    }
+    
+    @objc func tapBackground() {
+        self.textIP.resignFirstResponder()
+        self.textId.resignFirstResponder()
+        self.textEmail.resignFirstResponder()
+        self.textPassword.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

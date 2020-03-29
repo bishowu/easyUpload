@@ -75,11 +75,11 @@ class LocalMedias {
                 let creationDate = pojo.value(forKey: "creationDate") as! Date
                 let createTime = dateFormatter.string(from: creationDate)
                 let modificationDate = pojo.value(forKey: "modificationDate") as! Date
-                let modificationTime = dateFormatter.string(from: modificationDate)
+//                let modificationTime = dateFormatter.string(from: modificationDate)
                 let fileSize = Int64(0) // File Size 排序時再更新數值
                 self.assetInfoItems.append(
                     AssetInfoItem(id: id, fileName: fileName, createTime: createTime, fileSize: fileSize,
-                                  phAsset: pojo, modificationTime: modificationTime))
+                                  phAsset: pojo, modifyTime: CLong(modificationDate.timeIntervalSince1970)))
             }
             
         }

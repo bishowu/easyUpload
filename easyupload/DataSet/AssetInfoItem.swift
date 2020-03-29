@@ -21,7 +21,8 @@ class AssetInfoItem {
     /// 是否被選擇
     var selected: Bool
     /// 修改時間
-    var modificationTime: String
+//    var modificationTime: String
+    var modifyTime: CLong
     /// PHAsset localIdentifier
     var id: String
     /// Duration
@@ -30,14 +31,14 @@ class AssetInfoItem {
     var thumbnail: UIImage?
     var isGIF: Bool
     
-    init(id: String, fileName: String, createTime: String, fileSize: Int64, phAsset: PHAsset, modificationTime: String) {
+    init(id: String, fileName: String, createTime: String, fileSize: Int64, phAsset: PHAsset, modifyTime: CLong) {
         self.id = id
         self.fileName = fileName
         self.createTime = createTime
         self.fileSize = fileSize
         self.phAsset = phAsset
         self.selected = false
-        self.modificationTime = modificationTime
+        self.modifyTime = modifyTime
         self.isGIF = false
         
         let s:Int = Int(phAsset.duration) % 60

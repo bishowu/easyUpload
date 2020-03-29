@@ -18,4 +18,22 @@ class UploadTask {
         self.id = UUID().uuidString
         self.item = item
     }
+    
+    init(id: String, status: TaskManager.TaskStatus, item: UploadItem) {
+        self.id = id
+        self.item = item
+        self.status = status
+    }
+
+    func toStringDictionary() -> [String : String] {
+        let dict: [String : String] = [
+            "id": self.id,
+            "status": self.status.rawValue,
+            "dest": self.item.destPath,
+            "assetId": self.item.assetId,
+            "devId": self.item.destDeviceId
+        ]
+        
+        return dict
+    }
 }

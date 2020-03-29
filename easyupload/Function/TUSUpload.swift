@@ -17,7 +17,7 @@ class TUSUpload {
     var uploadId: String? {
         get {
             if !self.storeKey.isEmpty {
-                UserDefaults.standard.value(forKey: self.storeKey)
+                return UserDefaults.standard.value(forKey: self.storeKey) as? String
             }
             return nil
         }

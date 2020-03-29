@@ -114,11 +114,12 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
         let tasks = TaskManager.shared.getAllTasks()
+        let status = tasks[indexPath.row].status
         let percentage = String(format: "%.02f", tasks[indexPath.row].percentage)
         let iCloudPhoto = tasks[indexPath.row].item.iCloudPhoto
         
         cell.labelFilename.text = "\(iCloudPhoto ? "iCloud - " : "")" + tasks[indexPath.row].item.filename
-        cell.labelStatus.text = tasks[indexPath.row].status.rawValue + " - \(percentage) %"
+        cell.labelStatus.text = status.rawValue + (status == .running ? " - \(percentage) %" : "")
         return cell
     }
 }

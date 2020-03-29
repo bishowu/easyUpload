@@ -10,12 +10,12 @@ import Foundation
 import Photos
 
 class UploadItem {
-    var fileSize: Int64
-    var modifiedTime: CLong
+    var fileSize: Int64 = 0
+    var modifiedTime: CLong = 0
     var assetId: String
-    var filename: String
-    var destPath: String
-//    var destDeviceId: String
+    var filename: String = ""
+    var destPath: String = ""
+    var destDeviceId: String = ""
     var rename: Bool = true
     var iCloudPhoto: Bool = false
     var asset: PHAsset? {
@@ -36,22 +36,25 @@ class UploadItem {
     init(devId: String, dest: String, media: AssetInfoItem, rename: Bool) {
         self.assetId = media.id
         self.fileSize = media.fileSize
-        self.modifiedTime = 0 //cctest: media.modificationTime
+        self.modifiedTime = media.modifyTime
         self.filename = media.fileName
-//        self.fileUrl = url
         self.destPath = dest
+        self.destDeviceId = devId
         self.rename = rename
     }
     
-    init(assetId: String, name: String, url: URL, size: Int64, timestamp: CLong, devId: String, dest: String) {
+    init(devId: String, dest: String, assetId: String) {
         self.assetId = assetId
-        self.fileSize = size
-        self.modifiedTime = timestamp
-        self.filename = name
-        self.fileUrl = url
         self.destPath = dest
+        self.destDeviceId = devId
+        self.rename = true // Get current backup settings
         
-        print("cctest ====> upload item size = \(size)")
+        if let pojo = self.asset {
+            self.filename = pojo.value(forKey: "filename") as! String
+            let modificationDate = pojo.value(forKey: "modificationDate") as! Date
+            self.modifiedTime = CLong(modificationDate.timeIntervalSince1970)
+            self.fileSize = PHAssetResource.assetResources(for: pojo).first?.value(forKey: "fileSize") as? Int64 ?? 0
+        }
     }
     
     func getFileUrl(completionHandler: @escaping (URL?)->()) {

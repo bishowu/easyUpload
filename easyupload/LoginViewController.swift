@@ -37,7 +37,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 segProtocol.selectedSegmentIndex = 0
             }
-            
+        } else {
+            // Test account
+            self.textIP.text = "http://4170720224.u2.xnbay.com:5050"
         }
         
         if let email = UserDefaults.standard.value(forKey: "Email") as? String {
@@ -46,7 +48,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let id = UserDefaults.standard.value(forKey: "UserId_\(email)") as? String {
                 self.textId.text = id
             }
+        } else {
+            // Test account
+            self.textEmail.text = "developex.xnbay@gmail.com"
+            self.textId.text = "4253cec6-d3fe-1ce8-531c-b637c06a334f"
         }
+        
         if let pass = UserDefaults.standard.value(forKey: "Password") as? String {
             self.textPassword.text = pass
         }
@@ -62,6 +69,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if var ip = self.textIP.text, let id = self.textId.text, var email = self.textEmail.text, let pass = self.textPassword.text {
             email = email.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
             
+            // Remove old tasks
+            if let last = UserDefaults.standard.value(forKey: "Email") as? String, last != email {
+                TaskManager.shared.removeAllTasks()
+            }
+            
             self.textIP.resignFirstResponder()
             self.textId.resignFirstResponder()
             self.textEmail.resignFirstResponder()
@@ -72,8 +84,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let ptcol = segProtocol.selectedSegmentIndex == 0 ? "http://" : "https://"
                 ip = ptcol + ip
             }
-            
-            print("cctest ====> \(ip)")
             
             UserDefaults.standard.set(id, forKey: "UserId_\(email)")
             UserDefaults.standard.set(ip, forKey: "XnBayIp")
@@ -134,6 +144,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 email = email.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
                 if let id = UserDefaults.standard.value(forKey: "UserId_\(email)") as? String {
                     self.textId.text = id
+                    print("cctest ===>userId: \(id)")
                 }
             }
         }
@@ -149,6 +160,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("cctest ====> segue prepare .... ")
+        
     }
 }

@@ -30,7 +30,9 @@ class TaskManager {
     var uploadItems: [UploadItem] {
         didSet {
             for m in self.uploadItems {
-                self.uploadTasks.append(UploadTask(item: m))
+                let task = UploadTask(item: m)
+                self.uploadTasks.append(task)
+                self.saveTask(task)
             }
         }
     }
@@ -44,7 +46,6 @@ class TaskManager {
     }
     
     private func progress(taskId: String?, percentage: Double) {
-        print("cctest =====> percentage = \(percentage)")
         
         guard let taskId = taskId else {
             print("Error: progress(): No taskId")
@@ -64,7 +65,6 @@ class TaskManager {
     }
     
     private func fail(taskId: String?, error: Error) {
-        print("cctest ======> fail = \(error)")
         
         guard let taskId = taskId else {
             print("Error: fail(): No taskId")
@@ -90,6 +90,7 @@ class TaskManager {
         for i in 0..<self.uploadTasks.count {
             if self.uploadTasks[i].id == taskId {
                 self.uploadTasks[i].status = status
+                self.saveTask(self.uploadTasks[i])
                 break
             }
         }
@@ -103,6 +104,36 @@ class TaskManager {
     
     init() {
         uploadItems = []
+        loadOldTasks()
+        run()
+    }
+    
+    func loadOldTasks() {
+        if let arr = UserDefaults.standard.value(forKey: "UploadTasks") as? [String] {
+            for key in arr {
+                if let t = UserDefaults.standard.value(forKey: key) as? [String : String] {
+                    
+                    if let taskId = t["id"] as? String, let st = t["status"] as? String, let devId = t["devId"] as? String, let dest = t["dest"] as? String, let assetId = t["assetId"] as? String {
+                        
+                        let status: TaskManager.TaskStatus = TaskManager.TaskStatus.init(rawValue: st) ?? .pending
+                    
+                        self.uploadTasks.append(UploadTask(id: taskId, status: status, item: UploadItem(devId: devId, dest: dest, assetId: assetId)))
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveTask(_ task: UploadTask) {
+        UserDefaults.standard.set(task.toStringDictionary(), forKey: task.id)
+        
+        var taskIds: [String] = []
+        taskIds.append(task.id)
+        
+        if let arr = UserDefaults.standard.value(forKey: "UploadTasks") as? [String] {
+            taskIds.append(contentsOf: arr)
+        }
+        UserDefaults.standard.set(taskIds, forKey: "UploadTasks")
     }
     
     func stop() {
@@ -115,6 +146,9 @@ class TaskManager {
     }
     
     func run() {
+        
+        self.stopAllTasks = false
+        
         guard isRunning == false else {
             return
         }
@@ -133,10 +167,7 @@ class TaskManager {
     func upload(_ task: UploadTask, completionHandler: @escaping (String, TaskStatus)->()) {
         
         self.isRunning = true
-        self.observer?.onChanged(taskId: task.id, progress: nil, status: .running)
-        
-//        print("cctest ===> \(task.asset.localIdentifier): \(task.asset.value(forKey: "filename") ?? "NA")")
-        
+  
         task.item.getFileUrl() { url in
             let tusUpload = TUSUpload(task.item)
                 
@@ -154,11 +185,6 @@ class TaskManager {
                 completionHandler(task.id, .fail)
             }
         }
-    
-        // test
-//        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(3)) {
-//            completionHandler(task.id, .success)
-//        }
     }
     
     func getAllTasks() -> [UploadTask] {
@@ -168,6 +194,14 @@ class TaskManager {
     func removeAllTasks() {
         self.stop()
         self.uploadTasks.removeAll()
+        
+        // Clear all UserDefaults
+        if let arr = UserDefaults.standard.value(forKey: "UploadTasks") as? [String] {
+            for key in arr {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+            UserDefaults.standard.removeObject(forKey: "UploadTasks")
+        }
     }
     
     func setTaskChangeObserver(_ observer: TaskChangeObserver) {

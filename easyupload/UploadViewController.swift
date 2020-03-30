@@ -114,12 +114,30 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
         let tasks = TaskManager.shared.getAllTasks()
-        let status = tasks[indexPath.row].status
+        let task = tasks[indexPath.row]
+        let status = task.status
         let percentage = String(format: "%.02f", tasks[indexPath.row].percentage)
         let iCloudPhoto = tasks[indexPath.row].item.iCloudPhoto
         
-        cell.labelFilename.text = "\(iCloudPhoto ? "iCloud - " : "")" + tasks[indexPath.row].item.filename
+        cell.labelFilename.text = "\(iCloudPhoto ? "iCloud - " : "")" + task.item.filename
         cell.labelStatus.text = status.rawValue + (status == .running ? " - \(percentage) %" : "")
+        cell.id = task.id
+        cell.status = (status == .pause) ? .pause : .play
+        cell.delegate = self
+        cell.btnAction.isHidden = (status == .success)
+        
         return cell
+    }
+}
+
+extension UploadViewController: TaskTableViewCellClick {
+    func btnActionClick(id: String?, status: TaskTableViewCellStatus) {
+        if let id = id {
+            if status == .pause {
+                TaskManager.shared.pauseTask(id)
+            } else {
+                TaskManager.shared.playTask(id)
+            }
+        }
     }
 }

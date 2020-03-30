@@ -11,7 +11,7 @@ import TUSKit
 
 class TUSUpload {
     
-    var tusUpload: TUSResumableUpload? = nil
+    var resumableUpload: TUSResumableUpload? = nil
     var uuid: String?
     var storeKey: String = ""
     var uploadId: String? {
@@ -34,15 +34,15 @@ class TUSUpload {
     var success: ((String?)->())? = nil
     
     init(_ item: UploadItem) {
-        self.tusUpload = upload(item)
+        self.resumableUpload = upload(item)
     }
     
     func start() {
-        self.tusUpload?.resume()
+        self.resumableUpload?.resume()
     }
     
     func stop() {
-        self.tusUpload?.stop()
+        self.resumableUpload?.stop()
     }
     
     // Resumable upload via TUS

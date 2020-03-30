@@ -14,18 +14,23 @@ protocol TaskChangeObserver {
 class TaskManager {
     
     enum TaskStatus: String {
-        case pending
+        case pending //play
         case running
         case fail
         case success
+        case pause
     }
     
     public static let shared = TaskManager()
-    private var isRunning = false
     private var stopAllTasks = false
     private var uploadTasks = [UploadTask]()
     private var observer: TaskChangeObserver? = nil
-    private var runningTasks = [UploadTask]()
+    private var runningTasks: [UploadTask] {
+        get {
+            return self.uploadTasks.filter({ $0.status == .running })
+        }
+    }
+    private let MAX_RUNNING = 2
     
     var uploadItems: [UploadItem] {
         didSet {
@@ -84,18 +89,7 @@ class TaskManager {
     }
     
     func completed(taskId: String, status: TaskStatus) {
-        self.isRunning = false
-        
-        // Update task status
-        for i in 0..<self.uploadTasks.count {
-            if self.uploadTasks[i].id == taskId {
-                self.uploadTasks[i].status = status
-                self.saveTask(self.uploadTasks[i])
-                break
-            }
-        }
-        
-        self.observer?.onChanged(taskId: taskId, progress: nil, status: status)
+        self.changeTaskStatus(taskId: taskId, status: status)
         
         if !self.stopAllTasks {
             run()
@@ -115,8 +109,13 @@ class TaskManager {
                     
                     if let taskId = t["id"] as? String, let st = t["status"] as? String, let devId = t["devId"] as? String, let dest = t["dest"] as? String, let assetId = t["assetId"] as? String {
                         
-                        let status: TaskManager.TaskStatus = TaskManager.TaskStatus.init(rawValue: st) ?? .pending
+                        var status: TaskManager.TaskStatus = TaskManager.TaskStatus.init(rawValue: st) ?? .pending
                     
+                        // Reset the status
+                        if status == .running {
+                            status = .pending
+                        }
+                        
                         self.uploadTasks.append(UploadTask(id: taskId, status: status, item: UploadItem(devId: devId, dest: dest, assetId: assetId)))
                     }
                 }
@@ -127,13 +126,49 @@ class TaskManager {
     func saveTask(_ task: UploadTask) {
         UserDefaults.standard.set(task.toStringDictionary(), forKey: task.id)
         
-        var taskIds: [String] = []
-        taskIds.append(task.id)
-        
+        var taskIds: [String]
         if let arr = UserDefaults.standard.value(forKey: "UploadTasks") as? [String] {
-            taskIds.append(contentsOf: arr)
+            taskIds = arr
+        } else {
+            taskIds = []
         }
+        
+        if !taskIds.contains(task.id) {
+            taskIds.append(task.id)
+        }
+        
         UserDefaults.standard.set(taskIds, forKey: "UploadTasks")
+    }
+    
+    private func changeTaskStatus(taskId: String, status: TaskStatus) {
+        for i in 0..<self.uploadTasks.count {
+            if self.uploadTasks[i].id == taskId {
+                self.uploadTasks[i].status = status
+                self.saveTask(self.uploadTasks[i])
+                break
+            }
+        }
+        self.observer?.onChanged(taskId: taskId, progress: nil, status: status)
+    }
+    
+    func pauseTask(_ taskId: String) {
+        
+        // Stop and remove the running task
+        for task in self.runningTasks {
+            if task.id == taskId {
+                task.tusUpload?.stop()
+                break
+            }
+        }
+        
+        // Change the task status
+        changeTaskStatus(taskId: taskId, status: .pause)
+        run()
+    }
+    
+    func playTask(_ taskId: String) {
+        changeTaskStatus(taskId: taskId, status: .pending)
+        run()
     }
     
     func stop() {
@@ -148,8 +183,8 @@ class TaskManager {
     func run() {
         
         self.stopAllTasks = false
-        
-        guard isRunning == false else {
+    
+        guard self.runningTasks.count < MAX_RUNNING else {
             return
         }
         
@@ -162,26 +197,31 @@ class TaskManager {
         }
         
         upload(task, completionHandler: self.completed(taskId:status:))
+        run()
     }
     
     func upload(_ task: UploadTask, completionHandler: @escaping (String, TaskStatus)->()) {
         
-        self.isRunning = true
-  
+        changeTaskStatus(taskId: task.id, status: .running)
+        
         task.item.getFileUrl() { url in
-            let tusUpload = TUSUpload(task.item)
-                
-            if let _ = tusUpload.tusUpload {
-                tusUpload.uuid = task.id
-                tusUpload.progress = self.progress
-                tusUpload.fail = self.fail
-                tusUpload.success = self.success
-                
-                task.tusUpload = tusUpload
-                self.runningTasks.append(task)
-                
+            if let _ = url {
+                let tusUpload = TUSUpload(task.item)
+                    
+                if let _ = tusUpload.resumableUpload {
+                    tusUpload.uuid = task.id
+                    tusUpload.progress = self.progress
+                    tusUpload.fail = self.fail
+                    tusUpload.success = self.success
+                    task.tusUpload = tusUpload
+                    
+                } else {
+                    // Error: Failed to initialize the tus upload
+                    print("Error: Failed to initialize the tus upload")
+                    completionHandler(task.id, .fail)
+                }
             } else {
-                // Error: Failed to initialize the tus upload
+                print("Error: can't get file URL")
                 completionHandler(task.id, .fail)
             }
         }

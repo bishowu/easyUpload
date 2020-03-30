@@ -39,6 +39,7 @@ class LocalAlbumTableViewController: UITableViewController {
         
         cell.labelFilename.text = albums[indexPath.row].title
         cell.labelStatus.text = "-"
+        cell.btnAction.isHidden = true
         return cell
     }
     

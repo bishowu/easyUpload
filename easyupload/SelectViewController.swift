@@ -29,10 +29,10 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.collectionView.register(UINib(nibName: "SelectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SelectCollectionViewCell")
         self.collectionView.register(UINib(nibName: "EmptyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EmptyCollectionViewCell")
         
-        LocalMedias.shared.loadList(album) {
-            self.loaded = true
-            self.collectionView.reloadData()
-        }
+//        LocalMedias.shared.loadList(album) {
+//            self.loaded = true
+//            self.collectionView.reloadData()
+//        }
     }
     
     @IBAction func btnUploadClick(_ sender: Any) {
@@ -52,16 +52,28 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if LocalMedias.shared.getList().count > 0 {
-            LocalMedias.shared.getList()[indexPath.row].selected = true
+//        if LocalMedias.shared.getList().count > 0 {
+//            LocalMedias.shared.getList()[indexPath.row].selected = true
+//            let selectedCell = collectionView.cellForItem(at: indexPath) as! SelectCollectionViewCell
+//            selectedCell.imgCheck.image = checked
+//        }
+        
+        if self.album.assetInfoItems.count > 0 {
+            self.album.assetInfoItems[indexPath.row].selected = true
             let selectedCell = collectionView.cellForItem(at: indexPath) as! SelectCollectionViewCell
             selectedCell.imgCheck.image = checked
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if LocalMedias.shared.getList().count > 0 {
-            LocalMedias.shared.getList()[indexPath.row].selected = false
+//        if LocalMedias.shared.getList().count > 0 {
+//            LocalMedias.shared.getList()[indexPath.row].selected = false
+//            let selectedCell = collectionView.cellForItem(at: indexPath) as! SelectCollectionViewCell
+//            selectedCell.imgCheck.image = notcheck
+//        }
+        
+        if self.album.assetInfoItems.count > 0 {
+            self.album.assetInfoItems[indexPath.row].selected = false
             let selectedCell = collectionView.cellForItem(at: indexPath) as! SelectCollectionViewCell
             selectedCell.imgCheck.image = notcheck
         }
@@ -70,14 +82,16 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = LocalMedias.shared.getList().count
+//        let count = LocalMedias.shared.getList().count
+        let count = self.album.assetInfoItems.count
         return count == 0 ? 1 : count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
-        let medias = LocalMedias.shared.getList()
+//        let medias = LocalMedias.shared.getList()
+        let medias = self.album.assetInfoItems
+        let media = medias[indexPath.row]
         
         if medias.count == 0 {
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCollectionViewCell", for: indexPath) as! EmptyCollectionViewCell
@@ -86,9 +100,9 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
         } else {
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "SelectCollectionViewCell", for: indexPath) as! SelectCollectionViewCell
             
-            cell.imgBackground.image = medias[indexPath.row].getThumbnail()
-            cell.imgCheck.image = medias[indexPath.row].selected ? checked : notcheck
-            cell.type = (medias[indexPath.row].phAsset.mediaType == .video) ? .video : .image
+            cell.imgBackground.image = media.getThumbnail()
+            cell.imgCheck.image = media.selected ? checked : notcheck
+            cell.type = (media.phAsset.mediaType == .video) ? .video : .image
             return cell
         }
         
@@ -99,7 +113,8 @@ class SelectViewController: UIViewController, UICollectionViewDataSource, UIColl
     // NOTICE: Spacing: Set the 'Mini Spacing' = 1 of 'Collection View Flow Layout' of CollectionView in Storyboard
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if LocalMedias.shared.getList().count > 0 {
+//        if LocalMedias.shared.getList().count > 0 {
+        if self.album.assetInfoItems.count > 0 {
             let width: CGFloat = self.view.bounds.width / 4 - 1 /* Spacing */
             return CGSize(width: width, height: width)
         } else {

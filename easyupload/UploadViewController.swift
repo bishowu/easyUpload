@@ -93,10 +93,10 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func showSelectView() {
-        
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocalAlbumTableViewController") as! LocalAlbumTableViewController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LocalAlbumTableViewController") as! LocalAlbumTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     // MARK: - TaskChangeObserver

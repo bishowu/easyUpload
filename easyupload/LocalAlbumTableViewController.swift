@@ -38,7 +38,7 @@ class LocalAlbumTableViewController: UITableViewController {
         let albums = LocalMedias.shared.getAlbums()
         
         cell.labelFilename.text = albums[indexPath.row].title
-        cell.labelStatus.text = "-"
+        cell.labelStatus.text = "\(albums[indexPath.row].photoCount) / \(albums[indexPath.row].videoCount)"
         cell.btnAction.isHidden = true
         return cell
     }

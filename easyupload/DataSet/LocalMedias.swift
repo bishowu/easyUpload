@@ -106,20 +106,20 @@ class LocalMedias {
             if !self.supportedSmartAlbum(c) {continue}
             
             // 没有asset的空相簿不顯示
-//            let assetsFetchResult = PHAsset.fetchAssets(in: c , options: self.grabImageAndVideoSortByModifiDateDesc())
-//            if assetsFetchResult.count > 0 {
+            let assetsFetchResult = PHAsset.fetchAssets(in: c , options: self.grabImageAndVideoSortByModifiDateDesc())
+            if assetsFetchResult.count > 0 {
                 let title = c.localizedTitle
                 if isSmartAlbum {
                     if title != "" {
                         // 用原始英文相簿名，與備份頁相同
-                        self.albumList.append(AlbumItem(id: c.localIdentifier, title: title!, asset: c))
+                        self.albumList.append(AlbumItem(id: c.localIdentifier, title: title!, asset: c, items: assetsFetchResult))
                     }
                 } else {
                     if let title = title, title != "" {
-                        self.albumList.append(AlbumItem(id: c.localIdentifier, title: title, asset: c))
+                        self.albumList.append(AlbumItem(id: c.localIdentifier, title: title, asset: c, items: assetsFetchResult))
                     }
                 }
-//            }
+            }
         }
         
     }
